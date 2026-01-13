@@ -1,0 +1,555 @@
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amarnath | Web Developer Portfolio</title>
+<meta content="Portfolio of Amarnath, a passionate BCA student and beginner web developer." name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15L15 85H30L50 45L70 85H85L50 15Z' fill='%2310b981'/%3E%3Cpath d='M40 65H60L55 55H45L40 65Z' fill='%2310b981'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        'paper-light': '#FAFAFA',
+                        'ink': '#111827',
+                        'slate-dark': '#0B0F1A',
+                        'soft-white': '#F1F5F9',
+                        'emerald-cta': '#10B981',
+                        'emerald-bright': '#34D399',
+                        primary: "var(--primary-color)",
+                    },
+                    fontFamily: {
+                        sans: ["'Plus Jakarta Sans'", "sans-serif"],
+                        display: ["'Playfair Display'", "serif"],
+                    },
+                    borderRadius: {
+                        'premium': '1.5rem',
+                        'super': '2.5rem',
+                    },
+                    letterSpacing: {
+                        tightest: '-.075em',
+                        tighter: '-.05em',
+                        tight: '-.025em',
+                        normal: '0',
+                        wide: '.025em',
+                        wider: '.05em',
+                        widest: '.1em',
+                        premium: '.15em',
+                    },
+                    lineHeight: {
+                        'premium': '1.8',
+                        'premium-tight': '1.2',
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #10B981;
+            --primary-hover: #059669;
+            --glass-border: rgba(0, 0, 0, 0.06);
+            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+        }
+        .dark {
+            --primary-color: #34D399;
+            --primary-hover: #10B981;
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.5);
+        }
+        body {
+            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-nav {
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .dark .glass-nav {
+            background: rgba(11, 15, 26, 0.75);
+        }
+        .pill-glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.04);
+        }
+        .dark .pill-glass {
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.25);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #059669 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link-item::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .nav-link-item:hover::after, .nav-link-active::after {
+            width: 12px;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .premium-card {
+            background: white;
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark .premium-card {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .premium-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        .micro-interaction {
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .micro-interaction:active {
+            transform: scale(0.96);
+        }
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+        .stagger-4 { transition-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-paper-light dark:bg-slate-dark text-ink dark:text-soft-white antialiased selection:bg-emerald-cta selection:text-white">
+<nav class="fixed top-0 left-0 w-full z-50 glass-nav h-20 transition-all duration-300">
+<div class="max-w-7xl mx-auto h-full px-6 flex items-center justify-between relative">
+<div class="flex items-center">
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 flex items-center justify-center bg-emerald-cta dark:bg-emerald-bright rounded-xl text-white dark:text-slate-dark transform group-hover:rotate-[15deg] transition-all duration-500 shadow-lg shadow-emerald-cta/30">
+<svg class="w-6 h-6" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 15L15 85H30L50 45L70 85H85L50 15Z" fill="currentColor"></path>
+<path d="M40 65H60L55 55H45L40 65Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="font-sans font-extrabold text-xl tracking-tightest text-ink dark:text-soft-white ml-1">AMARNATH</span>
+</a>
+</div>
+<div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center pill-glass rounded-full p-1.5">
+<div class="flex items-center font-bold text-[11px] tracking-premium uppercase">
+<a class="nav-link-item hover:text-emerald-cta dark:hover:text-emerald-bright transition-colors px-6 py-2.5 relative" href="#about">About</a>
+<a class="nav-link-item hover:text-emerald-cta dark:hover:text-emerald-bright transition-colors px-6 py-2.5 relative" href="#skills">Skills</a>
+<a class="nav-link-item hover:text-emerald-cta dark:hover:text-emerald-bright transition-colors px-6 py-2.5 relative" href="#projects">Projects</a>
+<a class="nav-link-item hover:text-emerald-cta dark:hover:text-emerald-bright transition-colors px-6 py-2.5 relative" href="#contact">Contact</a>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 hover:bg-neutral-200/50 dark:hover:bg-white/10 rounded-full transition-all flex items-center justify-center micro-interaction" id="themeToggle" title="Toggle Dark Mode">
+<span class="material-symbols-outlined text-[20px]" id="themeIcon">light_mode</span>
+</button>
+<a class="hidden sm:block px-6 py-2.5 bg-emerald-cta dark:bg-emerald-bright hover:brightness-110 text-white dark:text-slate-dark rounded-full text-[11px] font-extrabold uppercase tracking-premium shadow-md shadow-emerald-cta/20 transition-all micro-interaction" href="#contact">Hire Me</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-ink dark:text-soft-white" id="menuOpen">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<div class="fixed inset-0 z-[100] bg-paper-light/95 dark:bg-slate-dark/95 backdrop-blur-2xl hidden flex-col transition-all duration-300" id="mobileMenu">
+<div class="flex items-center justify-between p-6 h-20">
+<span class="font-sans font-extrabold text-xl tracking-tightest text-ink dark:text-soft-white">AMARNATH</span>
+<button class="w-10 h-10 flex items-center justify-center text-ink dark:text-soft-white" id="menuClose">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col justify-center items-center gap-10 px-6">
+<nav class="flex flex-col items-center gap-10">
+<a class="text-4xl font-display font-black text-ink dark:text-soft-white hover:text-emerald-cta transition-colors" href="#about" onclick="closeMenu()">About</a>
+<a class="text-4xl font-display font-black text-ink dark:text-soft-white hover:text-emerald-cta transition-colors" href="#skills" onclick="closeMenu()">Skills</a>
+<a class="text-4xl font-display font-black text-ink dark:text-soft-white hover:text-emerald-cta transition-colors" href="#projects" onclick="closeMenu()">Projects</a>
+<a class="text-4xl font-display font-black text-ink dark:text-soft-white hover:text-emerald-cta transition-colors" href="#contact" onclick="closeMenu()">Contact</a>
+</nav>
+<div class="flex gap-8 mt-12">
+<a class="w-12 h-12 flex items-center justify-center rounded-xl bg-neutral-200/50 dark:bg-white/5 group" href="https://github.com" target="_blank">
+<img alt="GitHub" class="w-6 h-6 dark:invert opacity-70 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNcALE1_0eaOA0Hc5AW5bfVqzmDl05HUu678r7FDSSZbt5j4pUs7yeinnt2CHCM90DlSJQ-ehavlgWmZBxGcfmxXJnzStoFivpbcTJ77YKNLpkHHcQp-OHSIJBWUznPFSb19vz9gOdBTS9KeLCs9C2_4FHyqu7dGAViL3AkUPqT3z8VXgekyw0um9FW5fCK_fkD1VPkMcM0qp9XA7S-t9Ta80eFJXahICfD39Or8yvL8PyFe_obBzip8GBWkvp7LPeulCg-UyqQnSN"/>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-xl bg-neutral-200/50 dark:bg-white/5 group" href="https://linkedin.com" target="_blank">
+<svg class="w-6 h-6 fill-current text-[#0A66C2] opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0-2.761 2.239-5 5-5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<header class="pt-56 pb-32 px-6 overflow-hidden relative" id="hero">
+<div class="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-l from-emerald-cta/10 to-transparent -z-10 blur-3xl opacity-60"></div>
+<div class="absolute bottom-0 left-0 w-[40%] h-full bg-gradient-to-r from-emerald-cta/10 to-transparent -z-10 blur-3xl opacity-60"></div>
+<div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+<div class="reveal mb-10 px-5 py-2 border border-emerald-cta/20 text-emerald-cta dark:text-emerald-bright font-extrabold text-[10px] uppercase tracking-premium rounded-full bg-emerald-cta/5">
+            Full Stack Explorer
+        </div>
+<h1 class="reveal font-display text-ink dark:text-soft-white text-7xl md:text-8xl lg:text-[10rem] font-black mb-12 leading-[0.85] tracking-tight">
+            Hi, I'm <span class="text-gradient">Amarnath</span>
+</h1>
+<p class="reveal text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 max-w-3xl mb-16 font-light leading-premium px-4 tracking-tight">
+            A dedicated BCA student and aspiring developer crafting <span class="font-bold text-ink dark:text-soft-white border-b-2 border-emerald-cta/30 pb-1">refined digital experiences</span> with precision and modern minimalist aesthetics.
+        </p>
+<div class="reveal flex flex-col sm:flex-row gap-6 w-full sm:w-auto px-6">
+<a class="px-14 py-5 bg-emerald-cta dark:bg-emerald-bright hover:brightness-110 text-white dark:text-slate-dark rounded-2xl font-bold text-center shadow-xl shadow-emerald-cta/20 micro-interaction" href="#projects">Explore Work</a>
+<a class="px-14 py-5 border border-neutral-200 dark:border-white/10 hover:bg-neutral-100 dark:hover:bg-white/5 rounded-2xl font-bold transition-all text-center micro-interaction text-ink dark:text-soft-white" href="#contact">Let's Connect</a>
+</div>
+<div class="reveal mt-32 w-full max-w-6xl mx-auto px-4">
+<div class="relative rounded-[3rem] overflow-hidden shadow-2xl border border-neutral-200/50 dark:border-white/10 group">
+<img alt="Workspace" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtjrdBmyo8qOmqrU-x6w45i0vlTxRVmSmr4nW2VwBc4ssOmtyLcj7zrq93FYJJaNXAHtqLAGG8ZAcFgLgPe8QlaEb17oS64yqvQL-IiCfy2GUIt1Hgxx76FU0Osw7suapuTWDhTtmy6YyFa6xuZRGElfW8sEbZYEl50WAHaYkLmuqNsJ3Vy997a5Ks5qH-oQotA62khKru-vvmAnF_tbx3YMNKFZehhgZocxu5hdSoMygz8DzbvcY2lpO57RK8grUVowaheELs0eao"/>
+<div class="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent"></div>
+</div>
+</div>
+</div>
+</header>
+<section class="px-6 py-48 bg-white dark:bg-slate-dark/50" id="about">
+<div class="max-w-6xl mx-auto">
+<div class="grid lg:grid-cols-2 gap-32 items-center">
+<div class="reveal">
+<h2 class="text-[11px] font-black text-emerald-cta dark:text-emerald-bright uppercase tracking-premium mb-8">Introduction</h2>
+<h3 class="font-display text-5xl md:text-6xl font-black mb-12 italic leading-premium-tight text-ink dark:text-soft-white">Passionate Learner, <br/>Creative Thinker</h3>
+<div class="space-y-10 text-xl text-neutral-600 dark:text-neutral-400 font-light leading-premium tracking-tight">
+<p>
+                        Currently pursuing my <strong class="text-ink dark:text-soft-white font-bold">Bachelor of Computer Applications (BCA)</strong>, I focus on the intersection of technical robustness and aesthetic simplicity.
+                    </p>
+<p>
+                        I specialize in translating complex ideas into intuitive visual interfaces. I focus on writing clean code, following web standards, and ensuring accessibility for all users.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="reveal stagger-1 premium-card p-10 group micro-interaction">
+<span class="material-symbols-outlined text-emerald-cta dark:text-emerald-bright text-4xl mb-6 group-hover:scale-110 transition-transform">school</span>
+<h4 class="font-bold text-ink dark:text-soft-white text-xl mb-2">Education</h4>
+<p class="text-sm text-neutral-500 font-medium">BCA Candidate</p>
+</div>
+<div class="reveal stagger-2 premium-card p-10 group micro-interaction">
+<span class="material-symbols-outlined text-emerald-cta dark:text-emerald-bright text-4xl mb-6 group-hover:scale-110 transition-transform">auto_awesome</span>
+<h4 class="font-bold text-ink dark:text-soft-white text-xl mb-2">Focus</h4>
+<p class="text-sm text-neutral-500 font-medium">Modern Frontend</p>
+</div>
+<div class="reveal stagger-3 premium-card p-10 group micro-interaction">
+<span class="material-symbols-outlined text-emerald-cta dark:text-emerald-bright text-4xl mb-6 group-hover:scale-110 transition-transform">terminal</span>
+<h4 class="font-bold text-ink dark:text-soft-white text-xl mb-2">Stack</h4>
+<p class="text-sm text-neutral-500 font-medium">Node.js, JS, HTML</p>
+</div>
+<div class="reveal stagger-4 premium-card p-10 group micro-interaction">
+<span class="material-symbols-outlined text-emerald-cta dark:text-emerald-bright text-4xl mb-6 group-hover:scale-110 transition-transform">diversity_3</span>
+<h4 class="font-bold text-ink dark:text-soft-white text-xl mb-2">Network</h4>
+<p class="text-sm text-neutral-500 font-medium">Tech Enthusiast</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-48 bg-neutral-50/50 dark:bg-slate-dark/30" id="skills">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-32 reveal">
+<h2 class="text-[11px] font-black text-emerald-cta dark:text-emerald-bright uppercase tracking-premium mb-8">Expertise</h2>
+<h3 class="font-display text-5xl md:text-7xl font-black mb-10 text-ink dark:text-soft-white">Technical Toolkit</h3>
+<p class="text-neutral-500 text-lg max-w-xl mx-auto font-light leading-premium tracking-wide">Precision tools for high-performance development and elegant user interfaces.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
+<div class="reveal stagger-1 premium-card p-12 text-center flex flex-col items-center group">
+<div class="w-20 h-20 mb-10 flex items-center justify-center">
+<img alt="HTML5" class="w-16 h-16 transition-all duration-300 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX8dkBixW0aXd-T8fIPsgZWGDoSxvOLGmk-YjsRrTQbkk1ePfusI6O7dmYTTFNSva4V9msj0aioJswNndApdAHoXGL4wtqnnB1DuOJuR3z02mdBt4tdLbvG0ktw3OYJcOnMbVFqi7tVym3H9ynKNfRUdzlaiC97cV8ytqZYgTlZu-Q2lPAuqtrjP3PeXqXDJAF4GGgge5kBwQXQCd3Ag8s9y80IXLWjTB2aaDtvZBFCUpoNdX5pIv94jAJav48IAXl_A4EeWJ0YXGd"/>
+</div>
+<h3 class="font-bold text-ink dark:text-soft-white text-xl mb-2 tracking-tight">HTML5</h3>
+<p class="text-[10px] text-neutral-400 uppercase font-black tracking-widest">Structure</p>
+</div>
+<div class="reveal stagger-2 premium-card p-12 text-center flex flex-col items-center group">
+<div class="w-20 h-20 mb-10 flex items-center justify-center">
+<img alt="CSS3" class="w-16 h-16 transition-all duration-300 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADV4KGWUbndSexBEcQnovhLzcnNLMgLz8ZUdrYV6VWqwFLvsyEs6YOLNVQnNnDgVpn6xg60aPKM5Dh9PAzAhs5QTRwN5z3w3WsPDlJg9HiDE_m_44FjbW4u8Lvco8nZx9-Tpm59eStyOKMG7jTtGoa_gOd538fjewT1iy2-wX9PnuEi91s6gxxWAu1M8aUqqxSzsIFEKfZlSCkdXO56NrMpEv1tNxBXsv9BLTkGm5ZCgWrhHsMsfhOzqSzTIdckOj_eYC2jKXOMzpK"/>
+</div>
+<h3 class="font-bold text-ink dark:text-soft-white text-xl mb-2 tracking-tight">CSS3</h3>
+<p class="text-[10px] text-neutral-400 uppercase font-black tracking-widest">Styling</p>
+</div>
+<div class="reveal stagger-3 premium-card p-12 text-center flex flex-col items-center group">
+<div class="w-20 h-20 mb-10 flex items-center justify-center">
+<img alt="JavaScript" class="w-16 h-16 rounded-xl transition-all duration-300 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv07tkIGDa2G9OS6flKnTMWbMfu28_SbTiOo8xkwRXy4Edk-CJrvJsgClJuYksDCDhjyo8W1KY-aC2R3eg5VpLnlfmUVv5hNupmgL4-sGKE8r3cVq0T18t-lZQ2WfylCVydfOQNS05Y-ASoJXzyD_XniWlBdyAI1dFpAacMcERg9gk_8pUBF4ogjJIeahp_qZE9M0LBJGSy5hEeW0UNdigI5R_1-VSGXCzJuckHVHbtXTulJwldm6Z5--dTqknsNH12BrAGggktOeE"/>
+</div>
+<h3 class="font-bold text-ink dark:text-soft-white text-xl mb-2 tracking-tight">JavaScript</h3>
+<p class="text-[10px] text-neutral-400 uppercase font-black tracking-widest">Logic</p>
+</div>
+<div class="reveal stagger-4 premium-card p-12 text-center flex flex-col items-center group">
+<div class="w-20 h-20 mb-10 flex items-center justify-center">
+<img alt="Node.js" class="w-16 h-16 transition-all duration-300 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyYpVwn7Tc299tfuFPDvg5i5fYx_kgaQJ9HoYWnuvCEPOqV_pFJN8Vg0LcsD40RiH1VqYcdyBZqBHPW9GEV1o2ZxuyP4Fba3A6xEx2TsB_itqixZ93z5XeCCJFqlnfGfYaxGC819oNbTDMlLTcHX2E8GiQ2pr2lTLb4k4JFplU0bhANPn3YKo6pqV7Kxrhw5qcEppTHtTWV2-9WAq3BGA0ciDYz_8iClgcyC8hc3Y-2b9RMH6NzYnW2TESrmIECRfRclx7sqW4BGv"/>
+</div>
+<h3 class="font-bold text-ink dark:text-soft-white text-xl mb-2 tracking-tight">Node.js</h3>
+<p class="text-[10px] text-neutral-400 uppercase font-black tracking-widest">Runtime</p>
+</div>
+<div class="reveal stagger-4 premium-card p-12 text-center flex flex-col items-center group">
+<div class="w-20 h-20 mb-10 flex items-center justify-center">
+<img alt="GitHub" class="w-16 h-16 dark:invert transition-all duration-300 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRocsCoapwSw-ECUvxRTKsr5Qpy1vSnbBaTnHNRscl32cOHszVi5JIpnzG9pn9WvM2tpjqTSf2nBSJy0WvNOTXJ9P6ItMW4bAGQMAyW0xvPo_4Zd67sWoI2aZLLYk8NsBJD5MlQyjNSaGjmA8Od2WZhSbJFU1Cri8gZMfGnDS1nlcJHgbdWOMy7ktSG7x2iNBVmHEofVCyDRfIMJXRDhlhNs-j0XI6UZCjOQPM4354tnRD9M7eJ_6NutTgKnOQlwCl_cJUKQ7BQA65"/>
+</div>
+<h3 class="font-bold text-ink dark:text-soft-white text-xl mb-2 tracking-tight">GitHub</h3>
+<p class="text-[10px] text-neutral-400 uppercase font-black tracking-widest">Version Control</p>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-48 bg-neutral-50/50 dark:bg-slate-dark" id="projects">
+<div class="max-w-7xl mx-auto">
+<div class="mb-32 text-center md:text-left reveal">
+<h2 class="text-[11px] font-black text-emerald-cta dark:text-emerald-bright uppercase tracking-premium mb-8">Portfolio</h2>
+<h3 class="font-display text-5xl md:text-[5rem] font-black tracking-tightest text-ink dark:text-soft-white">Featured Projects</h3>
+</div>
+<div class="reveal premium-card overflow-hidden mb-32 border-none">
+<div class="flex flex-col lg:flex-row items-stretch">
+<div class="lg:w-1/2 p-6 lg:p-10">
+<div class="rounded-2xl overflow-hidden h-full">
+<img alt="Featured Project" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqDqR04Oc5We9q9c6TGNwx9EXbhynBOw0wN2w4_pnm-je-nSeq7syRZZCufFygJYZhOM5Ekh_PdoRCDarYGsJjAclV3eRff0Hgd8hoCUbm3dw0P9QihRTZq0r-Dc5gDY1kcYY0JveEAPjUvDIbeQyrmb2HsatSXTUQkzmHzW7Y0ozhfydPe2f5D_WFJDiwrtGlPVXxMcLLCTUTlj5Pg3pCGz39oH_RubGI7cl85532NdIgtRB73fM5u3ewerUEgZX_pTe5q9WcZdTn"/>
+</div>
+</div>
+<div class="lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center">
+<div class="flex flex-wrap gap-3 mb-10">
+<span class="px-5 py-1.5 bg-emerald-cta/5 border border-emerald-cta/10 text-emerald-cta dark:text-emerald-bright text-[10px] font-black uppercase tracking-premium rounded-full">Node.js</span>
+<span class="px-5 py-1.5 bg-emerald-cta/5 border border-emerald-cta/10 text-emerald-cta dark:text-emerald-bright text-[10px] font-black uppercase tracking-premium rounded-full">Tailwind</span>
+</div>
+<h4 class="font-display text-5xl font-bold mb-8 text-ink dark:text-soft-white">Nexus Management</h4>
+<p class="text-neutral-600 dark:text-neutral-400 mb-12 text-lg leading-premium font-light tracking-tight">
+                        A high-fidelity project management system designed for speed. Streamlining workflows with real-time analytics and intuitive task tracking with zero friction.
+                    </p>
+<div class="flex flex-wrap gap-10">
+<a class="flex items-center gap-2 font-bold text-emerald-cta dark:text-emerald-bright group micro-interaction" href="#">
+                            Live Project <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">north_east</span>
+</a>
+<a class="flex items-center gap-2 font-bold text-neutral-400 hover:text-ink dark:hover:text-soft-white group transition-colors micro-interaction" href="#">
+                            Case Study <span class="material-symbols-outlined text-sm">description</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<div class="reveal stagger-1 group premium-card p-8">
+<div class="rounded-2xl overflow-hidden mb-8 aspect-[4/3] border border-neutral-100 dark:border-white/5">
+<img alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS8jXZmOFVcRPfw7EfjbGddsYglNeBPLS2fhSrH8b5oktA3mP5ktTd6UYDM0L1zXO8BUzcD_N_WigQhvetCtGBeq2dod2fizfckOt-yvv-q2dhKPQlvJXnMxf2kOzsi1wm8MBm33B33JcthIg303mqXOJ2DuBqruhwZm3JcejaMdPOwOfEXtvq_y3d3gb2hXPTVhlLfuWiAslTNhqM_XcgHcNR54-CoHobYUPnGZGCLR3IOeXAvWvPLCdNCYoPVDKDAi8arAvlRQOu"/>
+</div>
+<h5 class="font-display text-2xl font-bold mb-4 text-ink dark:text-soft-white">Artisan Marketplace</h5>
+<p class="text-neutral-500 mb-10 font-light line-clamp-2 leading-premium text-base">An elegant e-commerce experience tailored for high-end boutique brands and creators.</p>
+<a class="text-emerald-cta dark:text-emerald-bright font-extrabold flex items-center gap-2 group/btn micro-interaction text-sm" href="#">
+                    VIEW DEMO <span class="material-symbols-outlined text-base group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="reveal stagger-2 group premium-card p-8">
+<div class="rounded-2xl overflow-hidden mb-8 aspect-[4/3] border border-neutral-100 dark:border-white/5">
+<img alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCJvapljdyAf3AL11RANt75K4yHpboqhGgMvftJANeBN5B6_XNGsjIiKvVywFqYhG7_yicNwm9EOtG2OFaIjFSyBZICwdg4LG24nm-g6mCkep-0Krrkmvsho9EuwqNBhxQI4EunGiulxw5NS9NHhkmtgW8Owfk_-aWMNaje82AZUWqCKxmx7ChTjOkIqHzrGZsyJGw5yBBz4lQVfopr3sQ3XdbEFea6GpkhroRQG_-nuGbmNBVHK_QooxobXmsmG7z5ElHKVoQc-xz"/>
+</div>
+<h5 class="font-display text-2xl font-bold mb-4 text-ink dark:text-soft-white">Inked Blog Platform</h5>
+<p class="text-neutral-500 mb-10 font-light line-clamp-2 leading-premium text-base">Minimalist typography-focused platform designed for the modern editorial experience.</p>
+<a class="text-emerald-cta dark:text-emerald-bright font-extrabold flex items-center gap-2 group/btn micro-interaction text-sm" href="#">
+                    VIEW DEMO <span class="material-symbols-outlined text-base group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="reveal stagger-3 group premium-card p-8">
+<div class="rounded-2xl overflow-hidden mb-8 aspect-[4/3] border border-neutral-100 dark:border-white/5">
+<img alt="Project 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG2mu_9VipwQJYo6-qVTAu9WnxgSajwWQcgitxEWCgeb86Go9ZtzbOzEXEh7016v8cpc-6KPQHEjToxthJ51et82BRvog6yU-_4njmA0rf5DOceDWemnY_mOF1BW-urnokEd5bUXoFhN720yBeocxypQNMWN6hzcSD3432izk8BdW5l48hPBcYw2bJCrT-bwJxHAUBCSn8Lj7aAhvyYtR8o2vZgtf2nKwFSB5P7JtbhRCJMDc3nNUQRn31Vu2RHQVSHKGLF1pf6Mr9"/>
+</div>
+<h5 class="font-display text-2xl font-bold mb-4 text-ink dark:text-soft-white">Task Flow Dashboard</h5>
+<p class="text-neutral-500 mb-10 font-light line-clamp-2 leading-premium text-base">Productivity dashboard emphasizing high-performance speeds and seamless UX.</p>
+<a class="text-emerald-cta dark:text-emerald-bright font-extrabold flex items-center gap-2 group/btn micro-interaction text-sm" href="#">
+                    VIEW DEMO <span class="material-symbols-outlined text-base group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-48 bg-paper-light dark:bg-slate-dark/40" id="contact">
+<div class="max-w-7xl mx-auto">
+<div class="reveal relative overflow-hidden bg-white dark:bg-slate-dark/50 rounded-super p-10 md:p-24 shadow-2xl border border-neutral-200/60 dark:border-white/10">
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-cta/5 rounded-full -mr-64 -mt-64 blur-[120px]"></div>
+<div class="grid lg:grid-cols-2 gap-24 relative z-10">
+<div>
+<h2 class="font-display text-6xl md:text-8xl font-black mb-12 leading-[1] text-ink dark:text-soft-white tracking-tightest">Let's start a <span class="text-emerald-cta italic">conversation.</span></h2>
+<p class="text-2xl text-neutral-600 dark:text-neutral-400 mb-20 font-light leading-premium tracking-tight">
+                        I'm currently seeking new opportunities to innovate and grow. Whether it's a project inquiry or just a hello—reach out.
+                    </p>
+<div class="space-y-12">
+<div class="flex items-center gap-8 group">
+<div class="w-20 h-20 bg-emerald-cta/10 dark:bg-emerald-bright/10 flex items-center justify-center rounded-2xl text-emerald-cta group-hover:bg-emerald-cta group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<div>
+<p class="text-[11px] font-black text-neutral-400 uppercase tracking-widest mb-2">Email Address</p>
+<a class="text-3xl font-bold text-ink dark:text-soft-white hover:text-emerald-cta transition-colors underline decoration-emerald-cta/20 underline-offset-8" href="mailto:hello@amarnath.com">hello@amarnath.com</a>
+</div>
+</div>
+</div>
+</div>
+<div class="pill-glass p-8 md:p-14 rounded-super border-none shadow-xl">
+<form class="space-y-10" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div>
+<label class="block text-[11px] font-black text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-4">Your Name</label>
+<input class="w-full bg-paper-light/50 dark:bg-black/20 border-neutral-200 dark:border-white/10 focus:ring-1 focus:ring-emerald-cta/30 focus:border-emerald-cta rounded-2xl py-5 px-8 transition-all outline-none text-ink dark:text-soft-white" placeholder="Name" required="" type="text"/>
+</div>
+<div>
+<label class="block text-[11px] font-black text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-4">Email</label>
+<input class="w-full bg-paper-light/50 dark:bg-black/20 border-neutral-200 dark:border-white/10 focus:ring-1 focus:ring-emerald-cta/30 focus:border-emerald-cta rounded-2xl py-5 px-8 transition-all outline-none text-ink dark:text-soft-white" placeholder="Email" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-black text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-4">Message</label>
+<textarea class="w-full bg-paper-light/50 dark:bg-black/20 border-neutral-200 dark:border-white/10 focus:ring-1 focus:ring-emerald-cta/30 focus:border-emerald-cta rounded-2xl py-5 px-8 transition-all outline-none text-ink dark:text-soft-white" placeholder="Your message here..." required="" rows="4"></textarea>
+</div>
+<button class="w-full bg-emerald-cta dark:bg-emerald-bright hover:brightness-110 text-white dark:text-slate-dark font-black py-6 rounded-2xl text-lg flex items-center justify-center gap-3 transition-all shadow-xl shadow-emerald-cta/20 micro-interaction uppercase tracking-premium" id="submitBtn" type="submit">
+                            Send Message <span class="material-symbols-outlined">send</span>
+</button>
+</form>
+<div class="hidden text-center py-20" id="formSuccess">
+<div class="w-24 h-24 bg-emerald-cta/10 text-emerald-cta flex items-center justify-center rounded-full mx-auto mb-8">
+<span class="material-symbols-outlined text-5xl">check_circle</span>
+</div>
+<h4 class="text-4xl font-display font-black text-ink dark:text-soft-white mb-4">Message Sent</h4>
+<p class="text-neutral-500 text-lg">I'll get back to you shortly.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="py-24 px-6 bg-paper-light dark:bg-slate-dark border-t border-neutral-100 dark:border-white/5">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-16">
+<div class="flex flex-col items-center md:items-start gap-6">
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 flex items-center justify-center bg-emerald-cta/10 text-emerald-cta rounded-xl group-hover:bg-emerald-cta group-hover:text-white transition-all duration-500">
+<svg class="w-6 h-6" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 15L15 85H30L50 45L70 85H85L50 15Z" fill="currentColor"></path>
+<path d="M40 65H60L55 55H45L40 65Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="font-sans font-black text-2xl tracking-tightest text-ink dark:text-soft-white">AMARNATH</span>
+</a>
+<p class="text-neutral-400 text-[11px] font-black uppercase tracking-premium">Architecting modern digital solutions since 2024</p>
+</div>
+<div class="flex items-center gap-12">
+<a class="flex items-center gap-3 text-neutral-500 hover:text-emerald-cta transition-colors group micro-interaction" href="https://github.com" target="_blank">
+<img alt="GitHub" class="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNcALE1_0eaOA0Hc5AW5bfVqzmDl05HUu678r7FDSSZbt5j4pUs7yeinnt2CHCM90DlSJQ-ehavlgWmZBxGcfmxXJnzStoFivpbcTJ77YKNLpkHHcQp-OHSIJBWUznPFSb19vz9gOdBTS9KeLCs9C2_4FHyqu7dGAViL3AkUPqT3z8VXgekyw0um9FW5fCK_fkD1VPkMcM0qp9XA7S-t9Ta80eFJXahICfD39Or8yvL8PyFe_obBzip8GBWkvp7LPeulCg-UyqQnSN"/>
+<span class="font-black text-[10px] uppercase tracking-premium">GitHub</span>
+</a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-emerald-cta transition-colors group micro-interaction" href="https://linkedin.com" target="_blank">
+<svg class="w-5 h-5 fill-current text-[#0A66C2] opacity-60 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0-2.761 2.239-5 5-5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+</svg>
+<span class="font-black text-[10px] uppercase tracking-premium">LinkedIn</span>
+</a>
+</div>
+</div>
+<div class="mt-24 pt-10 border-t border-neutral-100 dark:border-white/5 text-center">
+<p class="text-neutral-400 text-[10px] font-black tracking-widest uppercase">© 2024 Amarnath. Built with Precision.</p>
+</div>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const themeIcon = document.getElementById('themeIcon');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    function toggleTheme() {
+        htmlElement.classList.toggle('dark');
+        const isDark = htmlElement.classList.contains('dark');
+        themeIcon.textContent = isDark ? 'dark_mode' : 'light_mode';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    themeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        htmlElement.classList.add('dark');
+        themeIcon.textContent = 'dark_mode';
+    }
+    menuOpen.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    });
+    menuClose.addEventListener('click', closeMenu);
+    function closeMenu() {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        contactForm.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+            contactForm.classList.add('hidden');
+            formSuccess.classList.remove('hidden');
+        }, 300);
+    });
+    function reveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveals[i].getBoundingClientRect().top;
+            const elementVisible = 120;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-link-item');
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id') || "";
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('nav-link-active');
+            if (link.getAttribute('href').includes(current) && current !== "") {
+                link.classList.add('nav-link-active');
+            }
+        });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== "#") {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+</body></html>
